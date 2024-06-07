@@ -1,4 +1,4 @@
-package lyxux.task.to_do.models;
+package lyxux.task.to_do.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ToDoStructure {
-    private String todo;
-    private boolean done;
+public class UserDTO {
+    private long id;
+    private String name;
+    private String email;
 }
