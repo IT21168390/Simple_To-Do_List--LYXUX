@@ -5,5 +5,6 @@ import lombok.Data;
 @Data
 public class JwtAuthenticationResponseDTO {
     private String token;
+    private long userId;
     private String email;       //Additional
 }

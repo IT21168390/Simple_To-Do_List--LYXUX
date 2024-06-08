@@ -9,7 +9,6 @@ import java.util.List;
 @Repository
 public interface ToDoRepository extends JpaRepository<ToDo, Long> {
     List<ToDo> findAll();
-    List<ToDo> findAllByUserId(long id);
+    //List<ToDo> findAllByUserId(long id); /* If a user can create multiple To-Do lists */
     ToDo findByUserId(long id);
-    //ToDo findById(long id);
 }

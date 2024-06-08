@@ -16,9 +16,12 @@ public class ToDoController {
     private ToDoService toDoService;
 
     @GetMapping("/{userId}")
-    public ResponseEntity<ToDoDTO> getToDo(@PathVariable long userId) {
+    public ResponseEntity getToDo(@PathVariable long userId) {
         ToDoDTO toDo = toDoService.getUserToDo(userId);
         if (toDo!=null) {
+            if (toDo.getId()<=-1) {
+                return new ResponseEntity<>("A To-Do is not created for this user ("+userId+") yet.", HttpStatus.NO_CONTENT);
+            }
             return new ResponseEntity<>(toDo, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

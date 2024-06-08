@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Entity
@@ -20,6 +21,6 @@ public class ToDoTask {
     @JoinColumn(name = "todo_id", nullable = false)
     private ToDo toDoListID;
     private String todo;
-    private LocalDateTime timestamp;
-    private boolean done;
+    //private Date timestamp = new Date();
+    private boolean done = false;
 }

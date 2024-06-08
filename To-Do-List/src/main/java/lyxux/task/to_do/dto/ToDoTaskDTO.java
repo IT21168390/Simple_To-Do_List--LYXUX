@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -13,6 +14,6 @@ public class ToDoTaskDTO {
     private long id;
     private long toDoListID;
     private String todo;
-    private LocalDateTime timestamp;
+    //private Date timestamp;
     private boolean done;
 }

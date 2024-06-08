@@ -54,9 +54,13 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         //UserDTO userDTO = new UserDTO();
         var jwt = jwtService.generateToken(user);
 
+        // To get user id
+        User userData = userRepository.findFirstByEmail(signInRequest.getEmail());
+
         JwtAuthenticationResponseDTO jwtAuthenticationResponseDTO = new JwtAuthenticationResponseDTO();
         jwtAuthenticationResponseDTO.setToken(jwt);
-        jwtAuthenticationResponseDTO.setEmail(user.getUsername());
+        jwtAuthenticationResponseDTO.setEmail(userData.getEmail());
+        jwtAuthenticationResponseDTO.setUserId(userData.getId());
 
         return jwtAuthenticationResponseDTO;
     }
